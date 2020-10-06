@@ -26,12 +26,11 @@ _In Progress_
 | latitude| Update: US Survey Foot? | float64 |
 | longitude | Update: US Survey Foot? | float64 |
 | lotsizesquarefeet |The land the property occupies in squared feet : 100 - 371000512 | float64 |
-| propertycountylandusecode |  | object |
-| propertylandusetypeid |  | float64 |
-| rawcensustractandblock |  | float64 |
-| regionidcity |  | float64 |
-| regionidcounty |  | float64 |
-| regionidzip |  | float64 |
+| propertylandusetypeid | Unique numeric id that identifies what the land is used for: the 261=Single Family Residential, 262=Rural Residence, 273=Bungalow, 279=Inferred Single Family Residential | float64 |
+| rawcensustractandblock | Census tract and block ID combined - also contains blockgroup assignment by extension | float64 |
+| regionidcity |  City in which the property is located (if any) | float64 |
+| regionidcounty | County in which the property is located | float64 |
+| regionidzip | Zip code in which the property is located | float64 |
 | roomcnt |  | float64 |
 | yearbuilt | Year the property was built | float64 |
 | structuretaxvaluedollarcnt |  | float64 |

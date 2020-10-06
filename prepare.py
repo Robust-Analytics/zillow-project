@@ -1,9 +1,14 @@
 # Write supporting functions here
+import pandas as pd
+from acquire import load_zillow_data
+
 def run():
     print("Prepare: Cleaning acquired data...")
     # Write code here
     print("Prepare: Completed!")
-def prepare_zillow(df):
+    
+    
+def prepare_zillow():
     '''
     Signature: prepare_zillow(df) -> pandas.core.frame.DataFrame
     Docstring:
@@ -19,7 +24,7 @@ def prepare_zillow(df):
     Examples
     --------
     To copy the code hold ALT + SHIFT and drag your cursor from the first line to the last.
-    df = pd.read_csv('./data/raw/zillow.csv')
+    df = pd.read_csv('zillow.csv')
     
     nulls = df.isnull().sum()
     non_nulls = df.notnull().sum()
@@ -33,6 +38,7 @@ def prepare_zillow(df):
     '''
     # 1. Drop columns with missing values
     # Calculate the number of missing values and non-null values.
+    df = load_zillow_data()
     nulls = df.isnull().sum()
     non_nulls = df.notnull().sum()
     # Get the total number values in each column.
@@ -52,9 +58,10 @@ def prepare_zillow(df):
     return df
 
 
-def prepare_zillow_mvp(df):
+def prepare_zillow_mvp():
     '''
     
     '''
+    df = load_zillow_data()
     df = df[['bathroomcnt', 'bedroom', 'calculatedfinishedsquarefeet', 'taxvaluedollarcnt']]
     return df
