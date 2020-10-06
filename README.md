@@ -55,7 +55,16 @@ There are 59 features in this dataset you can find them [here]()
 ```
 $ git@github.com:Robust-Analytics/zillow-project.git
 ```
+
 ## Acknowledgements
 - Codeup Data Science Team
 - Darden Cohort
 - Generated with [ryans_codeup_data_science_mvp](https://github.com/RyanMcCall/- ryans_codeup_data_science_mvp)
+
+## Contact
+How to reach Anthony
+- [@DataStraine](https://twitter.com/datastraine)
+
+How to reach Chris
+- [@Promeos42](https://twitter.com/Promeos42)
+- 📫 christopher.logan.ortiz@gmail.com
