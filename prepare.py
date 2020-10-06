@@ -63,5 +63,5 @@ def prepare_zillow_mvp():
     
     '''
     df = load_zillow_data()
-    df = df[['bathroomcnt', 'bedroom', 'calculatedfinishedsquarefeet', 'taxvaluedollarcnt']]
+    df = df[['bathroomcnt', 'bedroomcnt', 'calculatedfinishedsquarefeet', 'taxvaluedollarcnt']]
     return df
