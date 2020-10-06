@@ -21,7 +21,7 @@ _In Progress_
 | bathroomcnt | Number of bathrooms a property has: 0 - 32 | float64 | 
 | bedroomcnt | Number of bedrooms a property has: 0 - 25  | float64 |
 | calculatedfinishedsquarefeet | Number of square feet of the property: 1 - 952576 | float64 |
-| fips | [(FIPS)](https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt) Five digit number of which the first two are the FIPS code of the state to which the county belongs. Leading 0 is removed from the data: 6011=Colusa County, 6037=Los Angeles County, 6111=Ventura County | float64 |
+| fips | [(FIPS)](https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt) Five digit number of which the first two are the FIPS code of the state to which the county belongs. Leading 0 is removed from the data: 6059=Orange County, 6037=Los Angeles County, 6111=Ventura County | float64 |
 | fullbathcnt | Number of full bathrooms a property has: 1 - 32 | float64 |
 | latitude| Update: US Survey Foot? | float64 |
 | longitude | Update: US Survey Foot? | float64 |
