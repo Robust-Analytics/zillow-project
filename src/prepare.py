@@ -50,3 +50,11 @@ def prepare_zillow(df):
     # Filter columns for single family residences.
     df = df[df.propertylandusetypeid.isin([261, 262, 273, 279])]
     return df
+
+
+def prepare_zillow_mvp(df):
+    '''
+    
+    '''
+    df = df[['bathroomcnt', 'bedroom', 'calculatedfinishedsquarefeet', 'taxvaluedollarcnt']]
+    return df
