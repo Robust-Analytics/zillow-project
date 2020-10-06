@@ -21,13 +21,13 @@ def load_zillow_data():
     
     A local copy will be created as a csv file in the current directory for future use.
     '''
-    
+    db = 'zillow'
     sql_query = "SELECT * FROM properties_2017;"
     file = 'zillow.csv'
     
     if os.path.isfile(file):
         return pd.read_csv('zillow.csv')
     else:
-        df = pd.read_sql(sql_query, get_connection(''))
+        df = pd.read_sql(sql_query, get_connection(db))
         df.to_csv('zillow.csv', index=False)
         return df
