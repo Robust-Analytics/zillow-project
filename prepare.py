@@ -63,5 +63,6 @@ def prepare_zillow_mvp():
     
     '''
     df = load_zillow_data()
+    df = df[df.propertylandusetypeid.isin([261, 262, 273, 279])]
     df = df[['bathroomcnt', 'bedroomcnt', 'calculatedfinishedsquarefeet', 'taxvaluedollarcnt']]
     return df
