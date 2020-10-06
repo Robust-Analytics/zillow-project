@@ -14,7 +14,7 @@ Predict the market value of single unit properties using properties that were so
 _In Progress_
 
 ## Data Dictionary
-There are 59 features in this dataset you can find them [here]()
+There are 59 features in this dataset you can find them [here](https://github.com/Robust-Analytics/zillow-project/blob/main/data-dictionary.md).
 
 
 ## Project Organization
