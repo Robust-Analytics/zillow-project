@@ -31,18 +31,19 @@ _In Progress_
 | regionidcity |  City in which the property is located (if any) | float64 |
 | regionidcounty | County in which the property is located | float64 |
 | regionidzip | Zip code in which the property is located | float64 |
-| roomcnt |  | float64 |
+| roomcnt | Total number of rooms in the principal residence | float64 |
 | yearbuilt | Year the property was built | float64 |
-| structuretaxvaluedollarcnt |  | float64 |
-| taxvaluedollarcnt |  | float64 |
-| assessmentyear |  | float64 |
-| landtaxvaluedollarcnt |  | float64 |
-| taxamount |  | float64 |
-| censustractandblock |  | float64 |
+| structuretaxvaluedollarcnt | The assessed value of the built structure on the parcel | float64 |
+| assessmentyear | The year of the property tax assessment  | float64 |
+| landtaxvaluedollarcnt | The assessed value of the land area of the parcel | float64 |
+| censustractandblock | Census tract and block ID combined - also contains blockgroup assignment by extension | float64 |
  
 | Target | Definition | Data Type |
 | --- | --- | --- |
-| Target 1 | Definition 1 | Data Type|
+| taxamount | The total property tax assessed for that assessment year | float64 |
+| taxvaluedollarcnt |The total tax assessed value of the parcel | float64 |
+
+
 ## Project Organization
 ```
 ├── README.md               <- The top-level README for developers using this project.
