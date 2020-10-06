@@ -69,7 +69,7 @@ def prepare_zillow_mvp():
     df = load_zillow_data()
     
     # Drop properties that are not considered single family properties
-    df = df[df.propertylandusetypeid.isin([261, 262, 273, 279])]
+    df = df[df.propertylandusetypeid.isin([261, 262, 273])]
     
     # Filter columns for MVP
     df = df[['bathroomcnt', 'bedroomcnt', 'calculatedfinishedsquarefeet', 'taxvaluedollarcnt']]
