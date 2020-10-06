@@ -54,7 +54,7 @@ def prepare_zillow():
     duplicate_columns_to_drop = ['calculatedbathnbr', 'finishedsquarefeet12', 'id']
     df = df.drop(columns=duplicate_columns_to_drop)
     # Filter columns for single family residences.
-    df = df[df.propertylandusetypeid.isin([261, 262, 273])]
+    df = df[df.propertylandusetypeid.isin([261, 262, 273, 279])]
     #  df = df.dropna()
     df = df[(df['bathroomcnt'] > 0) & (df['bathroomcnt'] > 0)]
     
