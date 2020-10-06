@@ -1,17 +1,17 @@
 # Zillow Project
 
-### Team
-Anthony Straine:
+# Team
+Anthony Straine,
 Junior Data Scientist
 
-Christopher Logan Ortiz:
+Christopher Logan Ortiz,
 Junior Data Scientist
 
 ## Description
 Predict the market value of single unit properties using properties that were sold in May and June 2017.
 
 ## Summary
-__In Progress__
+_In Progress_
 
 ## Data Dictionary
 There are 59 features in this dataset you can find them [here]()
@@ -53,12 +53,9 @@ There are 59 features in this dataset you can find them [here]()
 
 ## Usage
 ```
-$
-$
-$
+$ git@github.com:Robust-Analytics/zillow-project.git
 ```
 ## Acknowledgements
-
-Codeup Data Science Team
-Darden Cohort
-Generated with [ryans_codeup_data_science_mvp](https://github.com/RyanMcCall/- ryans_codeup_data_science_mvp)
+- Codeup Data Science Team
+- Darden Cohort
+- Generated with [ryans_codeup_data_science_mvp](https://github.com/RyanMcCall/- ryans_codeup_data_science_mvp)
