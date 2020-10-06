@@ -55,6 +55,9 @@ def prepare_zillow():
     df = df.drop(columns=duplicate_columns_to_drop)
     # Filter columns for single family residences.
     df = df[df.propertylandusetypeid.isin([261, 262, 273, 279])]
+    #  df = df.dropna()
+    df = df[(df['bathroomcnt'] > 0) & (df['bathroomcnt'] > 0)]
+    
     return df
 
 
@@ -62,7 +65,18 @@ def prepare_zillow_mvp():
     '''
     
     '''
+    # Load in the zillow data
     df = load_zillow_data()
+    
+    # Drop properties that are not considered single family properties
     df = df[df.propertylandusetypeid.isin([261, 262, 273, 279])]
+    
+    # Filter columns for MVP
     df = df[['bathroomcnt', 'bedroomcnt', 'calculatedfinishedsquarefeet', 'taxvaluedollarcnt']]
+    
+    # Drop rows with missing values
+    df = df.dropna()
+    
+    # Drop properties that don't have a room or a restroom
+    df = df[(df['bathroomcnt'] > 0) & (df['bathroomcnt'] > 0)]
     return df
