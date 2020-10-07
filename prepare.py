@@ -56,10 +56,11 @@ def prepare_zillow():
     # Filter columns for single family residences.
     df = df[df.propertylandusetypeid.isin([261, 262, 273])]
     df = df.dropna()
+    df['more_than_two_bath'] = (df.bathroomcnt > 2).astype('int')
     df = df[(df['bathroomcnt'] > 0) & (df['bathroomcnt'] > 0)]
     df.drop(columns=['transactiondate', 'latitude', 'longitude', 'rawcensustractandblock',
                      'regionidcity', 'regionidcounty', 'regionidzip', 'censustractandblock',
-                     'assessmentyear', 'propertycountylandusecode'], inplace = True)                     
+                     'assessmentyear', 'propertycountylandusecode', 'taxamount'], inplace = True)                     
     return df
 
 
@@ -84,6 +85,7 @@ def prepare_zillow_mvp():
     df['more_than_two_bath'] = (df.bathroomcnt > 2).astype('int')
  
     return df
+
 
 def load_zillow_tax_data():
     '''
