@@ -59,7 +59,7 @@ def prepare_zillow():
     df = df[(df['bathroomcnt'] > 0) & (df['bathroomcnt'] > 0)]
     df.drop(columns=['transactiondate', 'latitude', 'longitude', 'rawcensustractandblock',
                      'regionidcity', 'regionidcounty', 'regionidzip', 'censustractandblock',
-                     'assessmentyear'], inplace = True)                     
+                     'assessmentyear', 'propertycountylandusecode'], inplace = True)                     
     return df
 
 
