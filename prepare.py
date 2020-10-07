@@ -84,3 +84,34 @@ def prepare_zillow_mvp():
     df['more_than_two_bath'] = (df.bathroomcnt > 2).astype('int')
  
     return df
+
+    def load_zillow_tax_data():
+    '''
+    This function acquires the zillow dataset with tax rate from a SQL Database.
+    It returns the dataset as a Pandas DataFrame.
+    
+    A local copy will be created as a csv file in the current directory for future use.
+    '''
+    db = 'zillow'
+    sql_query = '''
+    SELECT *,
+    round(taxamount / taxvaluedollarcnt * 100, 2) as tax_rate,
+    case
+        when fips = 6059 then 'Orange County'
+        when fips = 6037 then 'Los Angeles County'
+        when fips = 6111 then 'Ventura County'
+        end as "County",
+    'California' as State
+    from zillow.properties_2017
+    join zillow.predictions_2017 
+    using(parcelid)
+    where transactiondate between '2017-05-01' and '2017-06-30';;
+        '''
+    file = 'zillow_with_tax.csv'
+    
+    if os.path.isfile(file):
+        return pd.read_csv('zillow_with_tax.csv')
+    else:
+        df = pd.read_sql(sql_query, get_connection(db))
+        df.to_csv('zillow_with_tax.csv', index=False)
+        return df
