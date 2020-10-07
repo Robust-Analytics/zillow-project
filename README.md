@@ -74,7 +74,6 @@ These features explain 38% of the variance in the tax value dollar amount. For o
 ```
 
 ## Requirements
----
 - numpy >= 1.1.2
 - pandas >= 1.18.1
 - scipy >=1.4.1
