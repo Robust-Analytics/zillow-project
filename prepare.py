@@ -85,7 +85,7 @@ def prepare_zillow_mvp():
  
     return df
 
-    def load_zillow_tax_data():
+def load_zillow_tax_data():
     '''
     This function acquires the zillow dataset with tax rate from a SQL Database.
     It returns the dataset as a Pandas DataFrame.
