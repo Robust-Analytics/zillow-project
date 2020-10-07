@@ -1,5 +1,5 @@
 # Zillow Project
----
+
 ## __Robust Analytics™__
 
 __Anthony Straine__<br>
@@ -9,11 +9,11 @@ __Christopher Ortiz__<br>
 Junior Data Scientist
 
 ## Description
----
+
 Predict the market value of single unit properties using properties that were sold in May and June of 2017.
 
 ## Summary
----
+
 Working together we discovered for our MVP that the features that appear to drive home value as measure by taxvaluedollarcnt are bathroomcnt, bedroomcnt, calculatedfinishedsquarefeet. We discovered this by going through an iterative, manual process of feature selection using a Pearson's R correlation test to select the top two features of bathroomcnt and calculatedfinishedsquarefeet and using industry knowledge to also include calculatedfinishedsquarefeet and homes having more than 2 bathrooms.
 
 After testing a few models, a polynomial model performed the best. Features used in our model:
@@ -25,7 +25,7 @@ After testing a few models, a polynomial model performed the best. Features used
 These features explain 47% of the variance in the tax value dollar amount. For our next iteration we will look at additional features while controlling for outliers.
 
 ## Data Dictionary
----
+
 | Feature | Definition | Data Type | 
 | --- | --- | --- |
 | id | row index number, range: 0 - 2985216 | int64 |
@@ -82,11 +82,9 @@ These features explain 47% of the variance in the tax value dollar amount. For o
 - seaborn >= 0.11.0
 
 ## Setup
----
 1. Download a zip file of the repository [here](https://github.com/Robust-Analytics/zillow-project/archive/main.zip)
 
 2. Clone this repository using:
-
 ```
 $ git clone git@github.com:Robust-Analytics/zillow-project.git
 ```
@@ -98,7 +96,6 @@ df = pd.read_csv('zillow.csv')
 ```
 
 ## Acknowledgements
----
 - Codeup Data Science Team
 - Darden Cohort
 - Generated with [ryans_codeup_data_science_mvp](https://github.com/RyanMcCall/-ryans_codeup_data_science_mvp)
