@@ -57,8 +57,9 @@ def prepare_zillow():
     df = df[df.propertylandusetypeid.isin([261, 262, 273])]
     #  df = df.dropna()
     df = df[(df['bathroomcnt'] > 0) & (df['bathroomcnt'] > 0)]
-    df.drop(columns=['transactiondate'], inplace = True)
-
+    df.drop(columns=['transactiondate', 'latitude', 'longitude', 'rawcensustractandblock',
+                     'regionidcity', 'regionidcounty', 'regionidzip', 'censustractandblock',
+                      'assessmentyear'], inplace = True)                     
     return df
 
 
