@@ -35,19 +35,12 @@ These features explain 38% of the variance in the tax value dollar amount. For o
 | calculatedfinishedsquarefeet | Number of square feet of the property: 1 - 952576 | float64 |
 | fips | [(FIPS)](https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt) Five digit number of which the first two are the FIPS code of the state to which the county belongs. Leading 0 is removed from the data: 6037=Los Angeles County, 6059=Orange County, 6111=Ventura County | float64 |
 | fullbathcnt | Number of full bathrooms a property has: 1 - 32 | float64 |
-| latitude| Latitude of the middle of the parcel multiplied by 10e6 | float64 |
-| longitude | Longitude of the middle of the parcel multiplied by 10e6 | float64 |
 | lotsizesquarefeet |The land the property occupies in squared feet : 100 - 371000512 | float64 |
 | propertylandusetypeid | Unique numeric id that identifies what the land is used for: the 261=Single Family Residential, 262=Rural Residence, 273=Bungalow | float64 |
-| regionidcity |  City in which the property is located (if any) | float64 |
-| regionidcounty | County in which the property is located | float64 |
-| regionidzip | Zip code in which the property is located | float64 |
 | roomcnt | Total number of rooms in the principal residence | float64 |
 | yearbuilt | Year the property was built | float64 |
 | structuretaxvaluedollarcnt | The assessed value of the built structure on the parcel | float64 |
-| assessmentyear | The year of the property tax assessment  | float64 |
 | landtaxvaluedollarcnt | The assessed value of the land area of the parcel | float64 |
-| censustractandblock | Census tract and block ID combined - also contains blockgroup assignment by extension | float64 |
 | transactiondate| The most recent date the property was sold: yyyy-mm-dd | object |
  
 | Target | Definition | Data Type |
@@ -103,8 +96,9 @@ df = pd.read_csv('zillow.csv')
 ## Contact
 How to reach Anthony
 - [@DataStraine](https://twitter.com/datastraine)
-- - 📫 anthony.straine@gmail.com
+- 📫 anthony.straine@gmail.com
 
 How to reach Chris
 - [@Promeos42](https://twitter.com/Promeos42)
 - 📫 christopher.logan.ortiz@gmail.com
+
