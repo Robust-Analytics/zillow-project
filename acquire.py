@@ -2,11 +2,6 @@ import pandas as pd
 import env
 import os
 
-def run():
-    print("Acquire: downloading raw data files...")
-
-    print("Acquire: Completed!")
-
 
 def get_connection(db, user=env.user, host=env.host, password=env.password):
     '''
@@ -22,7 +17,12 @@ def load_zillow_data():
     A local copy will be created as a csv file in the current directory for future use.
     '''
     db = 'zillow'
-    sql_query = "SELECT * FROM properties_2017;"
+    sql_query = '''
+        select *
+        from properties_2017
+        join predictions_2017 as pred using(parcelid)
+        where pred.transactiondate between '2017-05-01' and '2017-06-30';
+        '''
     file = 'zillow.csv'
     
     if os.path.isfile(file):

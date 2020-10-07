@@ -22,7 +22,7 @@ After testing a few models, a polynomial model performed the best. Features used
 - calculatedfinishedsquarefeet
 - taxvaluedollarcnt
 
-These features explain 47% of the variance in the tax value dollar amount. For our next iteration we will look at additional features while controlling for outliers.
+These features explain 38% of the variance in the tax value dollar amount. For our next iteration we will look at additional features while controlling for outliers.
 
 ## Data Dictionary
 
@@ -48,6 +48,7 @@ These features explain 47% of the variance in the tax value dollar amount. For o
 | assessmentyear | The year of the property tax assessment  | float64 |
 | landtaxvaluedollarcnt | The assessed value of the land area of the parcel | float64 |
 | censustractandblock | Census tract and block ID combined - also contains blockgroup assignment by extension | float64 |
+| transactiondate| The most recent date the property was sold: yyyy-mm-dd | object |
  
 | Target | Definition | Data Type |
 | --- | --- | --- |

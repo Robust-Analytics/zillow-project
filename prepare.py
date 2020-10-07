@@ -51,7 +51,7 @@ def prepare_zillow():
     # drop columns missing more than 33.58% of data.
     df = df.drop(columns=columns_to_drop)
     # drop duplicate columns and index column
-    duplicate_columns_to_drop = ['calculatedbathnbr', 'finishedsquarefeet12', 'id']
+    duplicate_columns_to_drop = ['calculatedbathnbr', 'finishedsquarefeet12', 'id', 'id.1', 'logerror']
     df = df.drop(columns=duplicate_columns_to_drop)
     # Filter columns for single family residences.
     df = df[df.propertylandusetypeid.isin([261, 262, 273])]
