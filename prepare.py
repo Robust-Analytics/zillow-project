@@ -57,7 +57,7 @@ def prepare_zillow():
     df = df[df.propertylandusetypeid.isin([261, 262, 273])]
     #  df = df.dropna()
     df = df[(df['bathroomcnt'] > 0) & (df['bathroomcnt'] > 0)]
-    df.drop(column=['transactiondate'], inplace = True)
+    df.drop(columns=['transactiondate'], inplace = True)
 
     return df
 
@@ -81,6 +81,6 @@ def prepare_zillow_mvp():
     # Drop properties that don't have a room or a restroom
     df = df[(df['bathroomcnt'] > 0) & (df['bathroomcnt'] > 0)]
     df['more_than_two_bath'] = (df.bathroomcnt > 2).astype('int')
-    df.drop(column=['transactiondate'], inplace = True)
+    df.drop(columns=['transactiondate'], inplace = True)
 
     return df
