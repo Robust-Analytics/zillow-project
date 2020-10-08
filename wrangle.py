@@ -141,9 +141,9 @@ def add_scaled_columns(train, validate, test, scaler=MinMaxScaler()):
     scaler.fit(train[columns_to_scale])
 
     # scale columns in train, validate and test sets
-    train_scaled = scaler.transform(X_train[columns_to_scale])
-    validate_scaled = scaler.transform(X_validate[columns_to_scale])
-    test_scaled = scaler.transform(X_test[columns_to_scale])
+    train_scaled = scaler.transform(train[columns_to_scale])
+    validate_scaled = scaler.transform(validate[columns_to_scale])
+    test_scaled = scaler.transform(test[columns_to_scale])
     
     # drop columns that are now scaled
     train.drop(columns=columns_to_scale, inplace=True)
@@ -154,7 +154,7 @@ def add_scaled_columns(train, validate, test, scaler=MinMaxScaler()):
     train = pd.concat([train,
                        pd.DataFrame(train_scaled,
                                     columns=new_column_names,
-                                    index=X_train.index.values
+                                    index=train.index.values
                                    )],
                       axis=1)
     
