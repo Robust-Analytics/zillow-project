@@ -41,16 +41,14 @@ def wrangle_data(df, target_name, modeling=False):
     # dataframe and returns train, validate, and test sets
     train, validate, test = train_validate_test(df)
     
-    # Split the train, validate, and test sets into 3 X_set and y_set
+    # If modeling is True
+    if modeling:
+        train, validate, test = add_scaled_columns(train, validate, test)
+        
+        # Split the train, validate, and test sets into 3 X_set and y_set
     X_train, y_train = attributes_target_split(train, target_name)
     X_validate, y_validate = attributes_target_split(validate, target_name)
     X_test, y_test = attributes_target_split(test, target_name)
-    
-    # If modeling is True
-    if modeling:
-        # Each data X_set is scaled
-        X_train, X_validate, X_test = add_scaled_columns(X_train, X_validate, X_test,
-                                                         scaler=MinMaxScaler())
     
     return X_train, y_train, X_validate, y_validate, X_test, y_test
 
@@ -100,8 +98,8 @@ def train_validate_test(df):
     -------
     train, validate, test
     '''
-    train_validate, test = train_test_split(df, test_size=.20, random_state=369)
-    train, validate = train_test_split(train_validate, test_size=.20, random_state=369)
+    train_validate, test = train_test_split(df, test_size=.15, random_state=369)
+    train, validate = train_test_split(train_validate, test_size=.15, random_state=369)
     return train, validate, test
 
 
@@ -124,7 +122,7 @@ def attributes_target_split(data_set, target_name):
     return x, y
 
 
-def add_scaled_columns(X_train, X_validate, X_test, scaler=MinMaxScaler()):
+def add_scaled_columns(train, validate, test, scaler=MinMaxScaler()):
     '''
     Signature: add_scaled_columns(train, validate, test, scaler)
     Docstring:
@@ -136,45 +134,45 @@ def add_scaled_columns(X_train, X_validate, X_test, scaler=MinMaxScaler()):
 
     Returns
     -------
-    X_train, X_validate, X_test
+    train, validate, test
     '''
-    columns_to_scale = X_train.select_dtypes(exclude='uint8').columns.to_list()
+    columns_to_scale = train.select_dtypes(exclude='uint8').columns.to_list()
     new_column_names = [c + '_scaled' for c in columns_to_scale]
-    scaler.fit(X_train[columns_to_scale])
+    scaler.fit(train[columns_to_scale])
 
     # scale columns in train, validate and test sets
-    X_train_scaled = scaler.transform(X_train[columns_to_scale])
-    X_validate_scaled = scaler.transform(X_validate[columns_to_scale])
-    X_test_scaled = scaler.transform(X_test[columns_to_scale])
+    train_scaled = scaler.transform(X_train[columns_to_scale])
+    validate_scaled = scaler.transform(X_validate[columns_to_scale])
+    test_scaled = scaler.transform(X_test[columns_to_scale])
     
     # drop columns that are now scaled
-    X_train.drop(columns=columns_to_scale, inplace=True)
-    X_validate.drop(columns=columns_to_scale, inplace=True)
-    X_test.drop(columns=columns_to_scale, inplace=True)
+    train.drop(columns=columns_to_scale, inplace=True)
+    validate.drop(columns=columns_to_scale, inplace=True)
+    test.drop(columns=columns_to_scale, inplace=True)
     
     # concatenate scaled columns with the original train/validate/test sets
-    X_train = pd.concat([X_train,
-                         pd.DataFrame(X_train_scaled,
-                         columns=new_column_names,
-                         index=X_train.index.values
-                                     )],
-                        axis=1)
+    train = pd.concat([train,
+                       pd.DataFrame(train_scaled,
+                                    columns=new_column_names,
+                                    index=X_train.index.values
+                                   )],
+                      axis=1)
     
-    X_validate = pd.concat([X_validate,
-                            pd.DataFrame(X_validate_scaled,
-                                         columns=new_column_names,
-                                         index=X_validate.index.values
-                                        )],
-                           axis=1)
+    validate = pd.concat([validate,
+                          pd.DataFrame(validate_scaled,
+                                       columns=new_column_names,
+                                       index=validate.index.values
+                                      )],
+                         axis=1)
     
-    X_test = pd.concat([X_test,
-                        pd.DataFrame(X_test_scaled,
-                                     columns=new_column_names,
-                                     index=X_test.index.values
-                                     )],
-                       axis=1)
+    test = pd.concat([test,
+                      pd.DataFrame(test_scaled,
+                                   columns=new_column_names,
+                                   index=test.index.values
+                                  )],
+                     axis=1)
     
-    return X_train, X_validate, X_test
+    return train, validate, test
 
 
 def features_for_modeling(predictors, target, k_features):
