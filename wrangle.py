@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler, RobustScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.feature_selection import SelectKBest, f_regression, RFE
 
@@ -122,7 +122,7 @@ def attributes_target_split(data_set, target_name):
     return x, y
 
 
-def add_scaled_columns(train, validate, test, scaler=MinMaxScaler()):
+def add_scaled_columns(train, validate, test, scaler=RobustScaler()):
     '''
     Signature: add_scaled_columns(train, validate, test, scaler)
     Docstring:
