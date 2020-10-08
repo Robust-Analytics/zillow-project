@@ -61,7 +61,7 @@ def prepare_zillow():
     df.drop(columns=['transactiondate', 'latitude', 'longitude', 'rawcensustractandblock',
                      'regionidcity', 'regionidcounty', 'regionidzip', 'censustractandblock',
                      'assessmentyear', 'propertycountylandusecode', 'taxamount',
-                     'structuretaxvaluedollarcnt', 'landtaxvaluedollarcnt'], inplace = True)                     
+                     'structuretaxvaluedollarcnt', 'landtaxvaluedollarcnt', 'fullbathcnt'], inplace = True)                     
     return df
 
 
