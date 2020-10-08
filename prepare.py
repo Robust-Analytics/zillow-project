@@ -1,6 +1,7 @@
 # Write supporting functions here
 import pandas as pd
-from acquire import load_zillow_data
+import os
+from acquire import load_zillow_data, get_connection
 
 def run():
     print("Prepare: Cleaning acquired data...")
