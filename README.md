@@ -34,7 +34,6 @@ These features explain 38% of the variance in the tax value dollar amount. For o
 | bedroomcnt | Number of bedrooms a property has: 0 - 25  | float64 |
 | calculatedfinishedsquarefeet | Number of square feet of the property: 1 - 952576 | float64 |
 | fips | [(FIPS)](https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt) Five digit number of which the first two are the FIPS code of the state to which the county belongs. Leading 0 is removed from the data: 6037=Los Angeles County, 6059=Orange County, 6111=Ventura County | float64 |
-| fullbathcnt | Number of full bathrooms a property has: 1 - 32 | float64 |
 | lotsizesquarefeet |The land the property occupies in squared feet : 100 - 371000512 | float64 |
 | propertylandusetypeid | Unique numeric id that identifies what the land is used for: the 261=Single Family Residential, 262=Rural Residence, 273=Bungalow | float64 |
 | roomcnt | Total number of rooms in the principal residence | float64 |
