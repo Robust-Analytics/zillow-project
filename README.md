@@ -39,8 +39,6 @@ These features explain 38% of the variance in the tax value dollar amount. For o
 | propertylandusetypeid | Unique numeric id that identifies what the land is used for: the 261=Single Family Residential, 262=Rural Residence, 273=Bungalow | float64 |
 | roomcnt | Total number of rooms in the principal residence | float64 |
 | yearbuilt | Year the property was built | float64 |
-| structuretaxvaluedollarcnt | The assessed value of the built structure on the parcel | float64 |
-| landtaxvaluedollarcnt | The assessed value of the land area of the parcel | float64 |
 | transactiondate| The most recent date the property was sold: yyyy-mm-dd | object |
  
 | Target | Definition | Data Type |
