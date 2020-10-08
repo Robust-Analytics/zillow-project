@@ -41,14 +41,14 @@ def wrangle_data(df, target_name, modeling=False):
     # dataframe and returns train, validate, and test sets
     train, validate, test = train_validate_test(df)
     
-    # If modeling is True
-    if modeling:
-        train, validate, test = add_scaled_columns(train, validate, test)
-        
-        # Split the train, validate, and test sets into 3 X_set and y_set
+    # Split the train, validate, and test sets into 3 X_set and y_set
     X_train, y_train = attributes_target_split(train, target_name)
     X_validate, y_validate = attributes_target_split(validate, target_name)
     X_test, y_test = attributes_target_split(test, target_name)
+    
+    # If modeling is True
+    if modeling:
+        X_train, X_validate, X_test = add_scaled_columns(train, validate, test)
     
     return X_train, y_train, X_validate, y_validate, X_test, y_test
 
@@ -98,8 +98,8 @@ def train_validate_test(df):
     -------
     train, validate, test
     '''
-    train_validate, test = train_test_split(df, test_size=.15, random_state=369)
-    train, validate = train_test_split(train_validate, test_size=.15, random_state=369)
+    train_validate, test = train_test_split(df, test_size=.15, random_state=123)
+    train, validate = train_test_split(train_validate, test_size=.15, random_state=123)
     return train, validate, test
 
 
