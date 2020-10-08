@@ -190,7 +190,7 @@ def features_for_modeling(predictors, target, k_features):
 
     '''
     df_best = pd.DataFrame(select_kbest(predictors, target, k_features))
-    df_rfe = pd.DataFrame(rfe(predictors, target, k_features))
+    df_rfe = pd.DataFrame(select_rfe(predictors, target, k_features))
     
     df_features = pd.concat([df_best, df_rfe], axis=1)
     return df_features
@@ -217,7 +217,8 @@ def select_kbest(predictors, target, k_features=3):
     
     print(f"Select K Best: {len(f_features)} features")
     print(f_features)
-    return predictors[f_features]
+    return None
+    # return predictors[f_features]
     
     
 def select_rfe(X, y, k_features=3):
@@ -243,6 +244,7 @@ def select_rfe(X, y, k_features=3):
 
     print(f"Recursive Feature Elimination: {len(rfe_features)} features")
     print(rfe_features)
-    return X[rfe_features]
+    return None
+    #return X[rfe_features]
 
 
